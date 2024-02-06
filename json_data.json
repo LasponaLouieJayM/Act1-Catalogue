@@ -4,12 +4,12 @@
         "name": "Techno Pova 5",
         "Description": "A Mobile Phone",
         "price": 150.00,
-        "Date Added": "February 5, 2024"
+        "Date": "February 5, 2024"
     },
     {
         "name": "Techno Camon 20",
         "Description": "A Mobile Phone",
         "price": 140.00,
-        "Date Added": "February 5, 2024"
+        "Date": "February 5, 2024"
     }
 ]

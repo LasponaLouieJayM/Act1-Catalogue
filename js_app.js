@@ -21,11 +21,28 @@ async function fetchAndDisplayProducts() {
             const productName = document.createElement('h3');
             productName.textContent = product.name;
 
+            const productDescription = document.createElement('h5');
+            productDescription.textContent = product.Description;
+
             const productPrice = document.createElement('p');
             productPrice.textContent = `Price: $${product.price}`;
 
+            const productDate = document.createElement('h4');
+            productDate.textContent = product.Date;
+      
+            const productline = document.createElement('hr');
+            productCard.classList.add('product-line');
+
+        //  Products
             productCard.appendChild(productName);
+
+            productCard.appendChild(productDescription);  
+
             productCard.appendChild(productPrice);
+
+            productCard.appendChild(productDate);
+            
+            productCard.appendChild(productline);
 
             productList.appendChild(productCard);
         });
