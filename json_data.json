@@ -11,5 +11,11 @@
         "Description": "A Mobile Phone",
         "price": 140.00,
         "Date": "February 5, 2024"
+    },
+    {
+        "name": "Techno Spark 20",
+        "Description": "A Mobile Phone",
+        "price": 110.00,
+        "Date": "February 6, 2024"
     }
 ]
