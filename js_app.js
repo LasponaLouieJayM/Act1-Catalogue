@@ -13,7 +13,7 @@ async function fetchAndDisplayProducts() {
         const productList = document.getElementById('apps');
 
         productList.innerHTML = '';
-
+            //   Elements
         data.forEach(product => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
