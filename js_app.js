@@ -29,6 +29,9 @@ async function fetchAndDisplayProducts() {
 
             const productDate = document.createElement('h4');
             productDate.textContent = product.Date;
+
+            const productButs = document.createElement('button');
+            productDate.textContent = product.button;
       
             const productline = document.createElement('hr');
             productCard.classList.add('product-line');
@@ -43,6 +46,8 @@ async function fetchAndDisplayProducts() {
             productCard.appendChild(productDate);
             
             productCard.appendChild(productline);
+
+            productCard.appendChild(productButs);
 
             productList.appendChild(productCard);
         });
