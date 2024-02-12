@@ -14,23 +14,23 @@ async function fetchAndDisplayProducts() {
         const productListContainer = document.createElement('div');
         productListContainer.classList.add('row'); // Add Bootstrap row class
 
-        // Create and append the title element
+       
         const titleElement = document.createElement('h2');
         titleElement.textContent = 'Products';
         productList.appendChild(titleElement);
 
         data.forEach(product => {
             const productCard = document.createElement('div');
-            productCard.classList.add('col-md-4', 'mb-4'); // Add Bootstrap column and margin-bottom classes
+            productCard.classList.add('col-md-4', 'mb-4'); // col
 
-            // Bootstrap card creation
+            // Bootstrap cards
             const card = document.createElement('div');
             card.classList.add('card');
 
-            // Image
+            // Images
             const image = document.createElement('img');
             image.src = product.imageUrl;
-            image.classList.add('card-img-top'); // Add Bootstrap card image top class
+            image.classList.add('card-img-top'); // adding bootstrap card
 
             const cardBody = document.createElement('div');
             cardBody.classList.add('card-body');
@@ -55,13 +55,13 @@ async function fetchAndDisplayProducts() {
             productExp.classList.add('card-text');
             productExp.textContent = `Expired Date: ${product.expired}`;
 
-            // Bootstrap button creation
+            // Bootstrap buts
             const addButton = document.createElement('button');
             addButton.textContent = 'Add to Cart';
-            addButton.classList.add('btn', 'btn-primary'); // Add Bootstrap button classes
+            addButton.classList.add('btn', 'btn-primary'); // button class
             
-            // Add event listener to the button
-            let count = 0; // Initial count
+            // listener
+            let count = 0; 
             addButton.addEventListener('click', () => {
                 count++;
                 addButton.textContent = `Add to Cart (${count})`;
