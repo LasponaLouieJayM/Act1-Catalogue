@@ -11,50 +11,80 @@ async function fetchAndDisplayProducts() {
         const data = await response.json();
 
         const productList = document.getElementById('apps');
+        const productListContainer = document.createElement('div');
+        productListContainer.classList.add('row'); // Add Bootstrap row class
 
-        productList.innerHTML = '';
-            //   Elements
+        // Create and append the title element
+        const titleElement = document.createElement('h2');
+        titleElement.textContent = 'Products';
+        productList.appendChild(titleElement);
+
         data.forEach(product => {
             const productCard = document.createElement('div');
-            productCard.classList.add('product-card');
+            productCard.classList.add('col-md-4', 'mb-4'); // Add Bootstrap column and margin-bottom classes
 
-            const productName = document.createElement('h3');
+            // Bootstrap card creation
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            // Image
+            const image = document.createElement('img');
+            image.src = product.imageUrl;
+            image.classList.add('card-img-top'); // Add Bootstrap card image top class
+
+            const cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+
+            const productName = document.createElement('h5');
+            productName.classList.add('card-title');
             productName.textContent = product.name;
 
-            const productDescription = document.createElement('h5');
+            const productDescription = document.createElement('p');
+            productDescription.classList.add('card-text');
             productDescription.textContent = product.Description;
 
             const productPrice = document.createElement('p');
-            productPrice.textContent = `Price: $${product.price}`;
+            productPrice.classList.add('card-text');
+            productPrice.textContent = `Price: ₱${product.price}`;
 
-            const productDate = document.createElement('h4');
-            productDate.textContent = product.Date;
+            const productDate = document.createElement('p');
+            productDate.classList.add('card-text');
+            productDate.textContent = `Date: ${product.Date}`;
 
-            const productButs = document.createElement('button');
-            productDate.textContent = product.button;
-      
-            const productline = document.createElement('hr');
-            productCard.classList.add('product-line');
+            const productExp = document.createElement('p');
+            productExp.classList.add('card-text');
+            productExp.textContent = `Expired Date: ${product.expired}`;
 
-        //  Products
-            productCard.appendChild(productName);
-
-            productCard.appendChild(productDescription);  
-
-            productCard.appendChild(productPrice);
-
-            productCard.appendChild(productDate);
+            // Bootstrap button creation
+            const addButton = document.createElement('button');
+            addButton.textContent = 'Add to Cart';
+            addButton.classList.add('btn', 'btn-primary'); // Add Bootstrap button classes
             
-            productCard.appendChild(productline);
+            // Add event listener to the button
+            let count = 0; // Initial count
+            addButton.addEventListener('click', () => {
+                count++;
+                addButton.textContent = `Add to Cart (${count})`;
+            });
 
-            productCard.appendChild(productButs);
+            cardBody.appendChild(productName);
+            cardBody.appendChild(productDescription);
+            cardBody.appendChild(productPrice);
+            cardBody.appendChild(productDate);
+            cardBody.appendChild(productExp);
+            cardBody.appendChild(addButton);
 
-            productList.appendChild(productCard);
+            card.appendChild(image); // Add image to card
+            card.appendChild(cardBody);
+            productCard.appendChild(card);
+
+            productListContainer.appendChild(productCard);
         });
+
+        productList.appendChild(productListContainer);
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 }
 
 fetchAndDisplayProducts();
-
